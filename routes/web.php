@@ -18,15 +18,18 @@ use App\Http\Controllers\PerusahaanController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/jadwal', [JadwalController::class, 'index']);
 Route::get('/paketjasa', [PaketJasaController::class, 'index']);
-Route::get('/kendaraan', [KendaraanController::class, 'index']);
+Route::get('/', [KendaraanController::class, 'index']);
 Route::get('/perusahaan', [PerusahaanController::class, 'index']);
 Route::get('/trainer', [TrainerController::class, 'index']);
 
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
